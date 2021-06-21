@@ -55,7 +55,7 @@ const onFormatClick =()=>{
 }
 
     return (
-        <div>
+        <div className="editor-wrapper">
             <button className="button button-format is-primary is-small" onClick={onFormatClick}>Format</button>
        
     <MonacoEditor 
@@ -63,7 +63,7 @@ const onFormatClick =()=>{
     value={initialValue}
     language='javascript' 
     theme="dark" 
-    height="500px"
+    height="100%"
     options ={{
         wordWrap:'on',
         minimap:{enabled: false},

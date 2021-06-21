@@ -13,6 +13,8 @@ let service: esbuild.Service;
             wasmURL: 'https://unpkg.com/esbuild-wasm@0.8.27/esbuild.wasm',
         });
     }
+
+    try{
     const result = await service.build({
         entryPoints: ['index.js'],
         bundle: true,
@@ -26,6 +28,16 @@ let service: esbuild.Service;
             global: 'window'
         }
      });
-     return result.outputFiles[0].text;
+     return {
+         code: result.outputFiles[0].text,
+         err: ''
+}
+    }catch(err){
+        return{
+        code: '',
+        err: err.message
+    }
+    }
+    
 }
 export default bundle;
