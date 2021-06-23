@@ -1,20 +1,18 @@
 import 'bulmaswatch/superhero/bulmaswatch.min.css';
 import ReactDOM from 'react-dom';
-// import CodeCell from './components/code-cell';
+import { Provider } from 'react-redux';
+import { store } from './state';
 import TextEditor from './components/text-editor';
 
-
-
-
-const App = () =>{
-    
+const App = () => {
 
     return (
-    <div className="editor-wrapper">
-        {/* <CodeCell /> */}
-        <TextEditor/>
-         </div>
-         );
+        <Provider store={store}>
+            <div >
+                <TextEditor />
+            </div>
+        </Provider>
+    );
 };
 
 ReactDOM.render(
